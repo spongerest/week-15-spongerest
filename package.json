@@ -8,6 +8,6 @@
     "uuid": "^9.0.1"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   }
 }
