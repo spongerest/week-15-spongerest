@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(helmet.frameguard({ action: 'deny' }))
 
 const GlobalcorsOptions = {
-    origin: ['http://localhost:7000', 'http://localhost:8000', 'http://localhost:5555'],
+    origin: ['https://crabby-bee-houndstooth.cyclic.app:7000', 'https://crabby-bee-houndstooth.cyclic.app:8000', 'http://localhost:5555'],
 }
 
 const allowAllOptions = {
@@ -23,12 +23,12 @@ const allowAllOptions = {
 
 app.use(express.json());
 const ClientXoptions = {
-    origin: 'http://localhost:7000',
+    origin: 'https://crabby-bee-houndstooth.cyclic.app:7000',
     methods: ['GET', 'POST'],
 }
 
 const ClientYoptions = {
-    origin: 'http://localhost:8000',
+    origin: 'https://crabby-bee-houndstooth.cyclic.app:8000',
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
 }
 
