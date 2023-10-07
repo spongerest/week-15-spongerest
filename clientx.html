@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client X</title>
+</head>
+<body>
+    <h1>Welcome Client X</h1>
+    <p id='message'></p>
+    <button id='post'>Post Data</button>
+    <button id='get'>Get Data</button>
+    <script>
+        fetch('http://localhost:3000/client-x')
+            .then(response => response.json())
+            .then(data => document.getElementById('message').textContent = data.message)
+            .catch(error => document.getElementById('message').textContent = error);
+
+        document.getElementById('post').addEventListener('click', function() {
+            fetch('http://localhost:3000/client-x', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-KEY': '889900'
+                    },
+            body: JSON.stringify({data: 'POST WORLD'})
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById('message').textContent = JSON.stringify(data.message))
+            .catch(error => document.getElementById('message').textContent = error);
+            });
+
+        document.getElementById('get').addEventListener('click', function() {
+                fetch('http://localhost:3000/client-x', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': '889900'
+                        },
+            body: JSON.stringify({data: 'GET WORLD'})
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById('message').textContent = JSON.stringify(data.message))
+            .catch(error => document.getElementById('message').textContent = error);
+        });
+    </script>
+</body>
+</html>

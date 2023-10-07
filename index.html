@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST CORS</title>
+</head>
+<body>
+    <h1>TEST CORS</h1>
+    <p id='message'></p>
+    <button onclick="window.location.href = 'clientx.html';">Go to Client X</button>
+    <button onclick="window.location.href='clienty.html';">Go to Client Y</button>
+    <button onclick="window.location.href='clickjacking.html';">CLICKJACKING TEST</button>
+    <script>
+        fetch('http://localhost:3000/cors')
+        .then(response => response.json())
+        .then(data => document.getElementById('message').textContent = data.message)
+        .catch(error => document.getElementById('message').textContent = error);
+    </script>
+</body>
+</html>
